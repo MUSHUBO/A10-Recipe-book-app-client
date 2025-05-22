@@ -5,4 +5,4 @@
 
 
 ## 🌐 Live URl:
-[Visit Event Discovery Platform](https://mu-shuvo-a9-event-discovery.netlify.app/)
+[Visit Event Discovery Platform](https://mus-a10-recipe-book-app.netlify.app/)
