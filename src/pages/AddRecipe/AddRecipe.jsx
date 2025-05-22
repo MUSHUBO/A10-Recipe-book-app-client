@@ -1,8 +1,48 @@
 import React from 'react';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 const AddRecipe = () => {
-    
-    
+
+    const handleAddRecipe = e => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const recipeData = Object.fromEntries(formData.entries());
+        // console.log(recipeData);
+
+        const selectedCategories = [];
+        form.querySelectorAll('input[name="categories"]:checked').forEach(checkbox => {
+            selectedCategories.push(checkbox.nextSibling.textContent.trim());
+        });
+        recipeData.categories = selectedCategories;
+        recipeData.likes = 0;
+        console.log(recipeData);
+
+        // send recipe data to the DB Server.
+        fetch('http://localhost:3000/recipes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(recipeData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Recipe Add Successfully!!!",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+
+                    form.reset();
+                }
+            })
+
+    }
 
     return (
         <div className='my-10 mb-24 mx-auto'>
@@ -13,36 +53,36 @@ const AddRecipe = () => {
             </p>
 
             {/* form section */}
-            <form>
+            <form onSubmit={handleAddRecipe}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     {/* Image URL */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Image URL</label>
-                        <input type="text" className="input w-full" placeholder="Enter image URL" />
+                        <input type="text" name='image' className="input w-full" placeholder="Enter image URL" />
                     </fieldset>
 
                     {/* Title */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Title</label>
-                        <input type="text" className="input w-full" placeholder="Recipe title" />
+                        <input type="text" name='title' className="input w-full" placeholder="Recipe title" />
                     </fieldset>
 
                     {/* Ingredients */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Ingredients</label>
-                        <textarea className="textarea w-full" placeholder="List of ingredients"></textarea>
+                        <textarea name='ingredients' className="textarea w-full" placeholder="List of ingredients"></textarea>
                     </fieldset>
 
                     {/* Instructions */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Instructions</label>
-                        <textarea className="textarea w-full" placeholder="Cooking instructions"></textarea>
+                        <textarea name='instructions' className="textarea w-full" placeholder="Cooking instructions"></textarea>
                     </fieldset>
 
                     {/* Cuisine Type Dropdown */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Cuisine Type</label>
-                        <select className="select w-full">
+                        <select name='cuisineType' className="select w-full">
                             <option>Italian</option>
                             <option>Mexican</option>
                             <option>Indian</option>
@@ -52,18 +92,18 @@ const AddRecipe = () => {
                     </fieldset>
 
                     {/* Preparation Time */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box">
                         <label className="label">Preparation Time (minutes)</label>
-                        <input type="number" className="input w-full" placeholder="Time in minutes" />
+                        <input type="number" name='preparationTime' className="input w-full" placeholder="Time in minutes" />
                     </fieldset>
 
                     {/* Categories Checkboxes */}
-                    <fieldset className="fieldset bg-base-200 p-6 rounded-box col-span-1 md:col-span-2">
+                    <fieldset className="fieldset bg-base-200 border border-gray-300 p-6 rounded-box col-span-1 md:col-span-2">
                         <label className="label">Categories</label>
                         <div className="flex flex-wrap gap-4">
                             {['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Vegan'].map(category => (
                                 <label key={category} className="flex items-center gap-2">
-                                    <input type="checkbox" />
+                                    <input name='categories' type="checkbox" />
                                     {category}
                                 </label>
                             ))}
