@@ -38,7 +38,7 @@ const NavBar = () => {
                 <div className='flex gap-1'>
                     <img className='w-12 h-12' src={logo} alt="" />
                     <div className='font-extrabold'>
-                        <h3 className='text-[#5d8e70]'>Recipe</h3>
+                        <h3 className='text-green-700'>Recipe</h3>
                         <h3 className='text-orange-700'>Book</h3>
                     </div>
                 </div>
