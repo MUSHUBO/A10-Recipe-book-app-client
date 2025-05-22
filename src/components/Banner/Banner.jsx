@@ -28,10 +28,10 @@ const Banner = () => {
                 className="w-full cursor-pointer"
             >
                 <SwiperSlide>
-                    <img className='max-h-[80vh] w-11/12 mx-auto rounded-xl' src={banner02} alt="" />
+                    <img className='max-h-[80vh] w-11/12 mx-auto rounded-xl' src={banner01} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='max-h-[80vh] w-11/12 mx-auto rounded-xl' src={banner01} alt="" />
+                    <img className='max-h-[80vh] w-11/12 mx-auto rounded-xl' src={banner02} alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className='max-h-[80vh] w-11/12 mx-auto rounded-xl' src={banner03} alt="" />

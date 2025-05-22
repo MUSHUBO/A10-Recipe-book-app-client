@@ -5,7 +5,7 @@ import logo from '../../assets/Recipe_Book-nav-logo.png'
 const Footer = () => {
     return (
         <footer className="bg-base-200 text-base-content p-6 md:p-10">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 py-10">
                 {/* Site Info */}
                 <div className='flex gap-2'>
                     <div>
@@ -24,7 +24,7 @@ const Footer = () => {
                         <FaEnvelope /> support@recipebook.com
                     </p>
                     <p className="flex items-center gap-2 text-sm mt-1">
-                        <FaPhone /> +880 1**-***-***
+                        <FaPhone /> +880 1*-***-*40.
                     </p>
                 </div>
 
