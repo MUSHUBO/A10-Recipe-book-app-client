@@ -5,6 +5,9 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import NotFound from "../pages/Error/NotFound";
+import AllRecipes from "../pages/AllRecipes/AllRecipes";
+import AddRecipe from "../pages/AddRecipe/AddRecipe";
+import MyRecipes from "../pages/MyRecipes/MyRecipes";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +18,18 @@ const router = createBrowserRouter([
                 index: true,
                 path: "/",
                 Component: Home
+            },
+            {
+                path: "/allRecipes",
+                Component: AllRecipes
+            },
+            {
+                path: "/addRecipe",
+                Component: AddRecipe
+            },
+            {
+                path: "/myRecipes",
+                Component: MyRecipes
             },
         ]
     },

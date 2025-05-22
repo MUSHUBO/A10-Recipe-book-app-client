@@ -6,10 +6,10 @@ import Footer from '../components/Footer/Footer';
 const HomeLayout = () => {
     return (
         <div>
-            <header>
+            <header className='border-b-2 border-base-300'>
                 <NavBar></NavBar>
             </header>
-            <main>
+            <main className='w-11/12 mx-auto'>
                 <Outlet></Outlet>
             </main>
             <footer>
