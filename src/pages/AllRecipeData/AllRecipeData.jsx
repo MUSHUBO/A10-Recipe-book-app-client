@@ -12,7 +12,7 @@ const AllRecipeData = ({ AllRecipesData }) => {
             <figure>
                 <img
                     src={image || 'https://i.ibb.co/PG0JqTLK/placeholder.jpg'}
-                    alt={title} className="w-full h-57 object-cover"
+                    alt={title} className="w-full h-full sm:h-57 object-cover"
                 />
             </figure>
             <div className="card-body space-y-1">

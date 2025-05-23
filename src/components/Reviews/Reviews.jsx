@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Review from '../Review/Review';
 
 const Reviews = () => {
     const [data, setData] = useState([]);
-    console.log(data);
 
     useEffect(() => {
         fetch('reviewsData.json')
@@ -14,13 +14,13 @@ const Reviews = () => {
     }, []);
 
     return (
-        <div>
-            <h1 className='font-medium text-3xl text-center mb-10'>Customer's
-                <span className='text-blue-700 font-semibold'> Reviews</span> </h1>
+        <div className='mb-32'>
+            <h1 className="text-2xl md:text-3xl font-bold mb-10 text-start">User
+                <span className='text-blue-800'> Reviews</span> </h1>
 
-            <div>
+            <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    
+                    data.map(reviews => <Review key={reviews.id} reviews={reviews}></Review>)
                 }
             </div>
         </div>

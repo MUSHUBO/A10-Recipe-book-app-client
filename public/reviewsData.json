@@ -1,26 +1,47 @@
 [
-    {
-        "id": 1,
-        "name": "Emily Johnson",
-        "photo": "https://i.pravatar.cc/150?img=32",
-        "rating": 5,
-        "review": "Absolutely love this app! The recipes are easy to follow and the wishlist feature is so helpful.",
-        "date": "May 15, 2025"
-    },
-    {
-        "id": 2,
-        "name": "Carlos Gomez",
-        "photo": "https://i.pravatar.cc/150?img=45",
-        "rating": 4,
-        "review": "Great for discovering new dishes. I wish there were more vegetarian options though.",
-        "date": "May 12, 2025"
-    },
-    {
-        "id": 3,
-        "name": "Amina Rahman",
-        "photo": "https://i.pravatar.cc/150?img=52",
-        "rating": 5,
-        "review": "The like system and top recipes section keep me coming back. Super engaging!",
-        "date": "May 10, 2025"
-    }
+  {
+    "id": 1,
+    "name": "Ananya Patel",
+    "country": "India",
+    "photo": "https://i.pravatar.cc/150?img=10",
+    "rating": 5,
+    "review": "As an Indian, I love finding spicy and flavorful recipes here. Totally satisfied!",
+    "date": "May 10, 2025"
+  },
+  {
+    "id": 2,
+    "name": "Shanto Ahmed",
+    "country": "Bangladesh",
+    "photo": "https://i.pravatar.cc/150?img=11",
+    "rating": 4,
+    "review": "Great app! It has many Bengali-style dishes that remind me of home cooking.",
+    "date": "May 11, 2025"
+  },
+  {
+    "id": 3,
+    "name": "Luca Rossi",
+    "country": "Italy",
+    "photo": "https://i.pravatar.cc/150?img=12",
+    "rating": 5,
+    "review": "Excellent for Italian cuisine lovers! I even found a great tiramisu recipe!",
+    "date": "May 12, 2025"
+  },
+  {
+    "id": 4,
+    "name": "Sofia Ramirez",
+    "country": "Mexico",
+    "photo": "https://i.pravatar.cc/150?img=13",
+    "rating": 4,
+    "review": "The Mexican recipes are authentic and easy to follow. My family loved them!",
+    "date": "May 13, 2025"
+  },
+  {
+    "id": 5,
+    "name": "Tyrese Cain",
+    "country": "Caines",
+    "photo": "https://i.pravatar.cc/150?img=14",
+    "rating": 5,
+    "review": "I enjoy discovering new global recipes—simple, fun, and tasty!",
+    "date": "May 14, 2025"
+  }
 ]
