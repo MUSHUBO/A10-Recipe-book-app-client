@@ -8,6 +8,7 @@ import NotFound from "../pages/Error/NotFound";
 import AllRecipes from "../pages/AllRecipes/AllRecipes";
 import AddRecipe from "../pages/AddRecipe/AddRecipe";
 import MyRecipes from "../pages/MyRecipes/MyRecipes";
+import RecipeDetails from "../pages/RecipeDetails/RecipeDetails";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,12 @@ const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
+                loader: () => fetch('http://localhost:3000/recipes'),
                 Component: Home
+            },
+            {
+                path: "/recipe/:id",
+                Component: RecipeDetails
             },
             {
                 path: "/allRecipes",
@@ -38,13 +44,13 @@ const router = createBrowserRouter([
         Component: AuthLayout,
         children: [
             {
-                    path: "/auth/login",
-                    Component: Login
-                },
-                {
-                    path: "/auth/register",
-                    Component: Register
-                },
+                path: "/auth/login",
+                Component: Login
+            },
+            {
+                path: "/auth/register",
+                Component: Register
+            },
         ]
     },
     {
