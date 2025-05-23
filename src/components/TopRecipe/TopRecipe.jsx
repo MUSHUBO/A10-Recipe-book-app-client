@@ -16,16 +16,25 @@ const TopRecipe = ({ recipe }) => {
                 />
             </figure>
             <div className="card-body">
+                {/* title */}
                 <h2 className="card-title"> {title} </h2>
+
                 <div className="flex justify-between items-center text-sm text-gray-500">
+                    {/* cuisineType */}
                     <span className='text-lg'>{cuisineType}</span>
-                    <span className="flex items-center gap-1 text-red-500">
-                        <FaHeart size={20} /> {likes}
-                    </span>
+
+                    {/* Like Button */}
+                    <div className="card-actions justify-end mt-4">
+                        <span className="flex items-center gap-1 text-sky-600">
+                            <FaHeart size={20} /> {likes}
+                        </span>
+                    </div>
                 </div>
+
+                {/* View Button */}
                 <div className="card-actions justify-end mt-4">
                     <Link to={`/recipe/${_id}`}>
-                        <button className="font-medium">View Details</button>
+                        <button className="font-medium hover:text-blue-800">View Details</button>
                     </Link>
                 </div>
             </div>
