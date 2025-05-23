@@ -9,6 +9,7 @@ import AllRecipes from "../pages/AllRecipes/AllRecipes";
 import AddRecipe from "../pages/AddRecipe/AddRecipe";
 import MyRecipes from "../pages/MyRecipes/MyRecipes";
 import RecipeDetails from "../pages/RecipeDetails/RecipeDetails";
+import Reviews from "../components/Reviews/Reviews";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
                 path: "/recipe/:id",
                 loader: ({params}) => fetch(`http://localhost:3000/recipes/${params.id}`),
                 Component: RecipeDetails
+            },
+            {
+                path: "/reviews",
+                loader: () => fetch('/reviewsData.json'),
+                Component: Reviews
             },
             {
                 path: "/allRecipes",

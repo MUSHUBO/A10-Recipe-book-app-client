@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Emily Johnson",
+        "photo": "https://i.pravatar.cc/150?img=32",
+        "rating": 5,
+        "review": "Absolutely love this app! The recipes are easy to follow and the wishlist feature is so helpful.",
+        "date": "May 15, 2025"
+    },
+    {
+        "id": 2,
+        "name": "Carlos Gomez",
+        "photo": "https://i.pravatar.cc/150?img=45",
+        "rating": 4,
+        "review": "Great for discovering new dishes. I wish there were more vegetarian options though.",
+        "date": "May 12, 2025"
+    },
+    {
+        "id": 3,
+        "name": "Amina Rahman",
+        "photo": "https://i.pravatar.cc/150?img=52",
+        "rating": 5,
+        "review": "The like system and top recipes section keep me coming back. Super engaging!",
+        "date": "May 10, 2025"
+    }
+]

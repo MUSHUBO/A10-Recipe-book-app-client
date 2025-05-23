@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router';
 const RecipeDetails = () => {
     const recipeData = useLoaderData();
     console.log(recipeData);
-    const { _id, image, title, categories, cuisineType, ingredients, instructions, preparationTime, likes, } = recipeData;
+    const { _id, image, title, categories, cuisineType, ingredients, instructions, preparationTime, likes } = recipeData;
 
     useEffect(() => {
         window.scrollTo(0, 0);

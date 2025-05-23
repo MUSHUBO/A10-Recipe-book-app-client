@@ -8,7 +8,7 @@ const TopRecipes = ({ recipesData }) => {
 
     return (
         <div className='my-32'>
-            <h1 className='font-medium text-3xl text-center mb-4'>Top Recipes</h1>
+            <h1 className='font-medium text-3xl text-center mb-4'>Top <span className='text-pink-600'>Recipes</span> </h1>
             <p className="text-center text-gray-500 mb-10 max-w-2xl mx-auto">
                 Discover the most loved and highest-rated recipes from our community. These top picks are perfect for impressing guests or treating yourself to something special!
             </p>

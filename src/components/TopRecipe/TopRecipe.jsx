@@ -3,7 +3,7 @@ import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const TopRecipe = ({ recipe }) => {
-    console.log(recipe);
+    // console.log(recipe);
     const { _id, image, title, cuisineType, likes, } = recipe;
 
 
@@ -12,7 +12,7 @@ const TopRecipe = ({ recipe }) => {
             <figure>
                 <img
                     src={image || 'https://i.ibb.co/PG0JqTLK/placeholder.jpg'}
-                    alt={title} className="w-full h-full object-cover"
+                    alt={title} className="w-full h-80 object-cover"
                 />
             </figure>
             <div className="card-body">
