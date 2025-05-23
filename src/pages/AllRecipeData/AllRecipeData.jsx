@@ -8,7 +8,7 @@ const AllRecipeData = ({ AllRecipesData }) => {
     const { _id, image, title, categories, cuisineType, likes } = AllRecipesData;
 
     return (
-        <div className="card  bg-base-100 shadow-sm mb-10">
+        <div className="card cursor-pointer bg-base-100 shadow-lg hover:shadow-xl mb-10">
             <figure>
                 <img
                     src={image || 'https://i.ibb.co/PG0JqTLK/placeholder.jpg'}

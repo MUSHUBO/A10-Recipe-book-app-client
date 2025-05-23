@@ -8,7 +8,7 @@ const TopRecipe = ({ recipe }) => {
 
 
     return (
-        <div className="card bg-base-100 shadow-sm">
+        <div className="card bg-base-100 shadow-md">
             <figure>
                 <img
                     src={image || 'https://i.ibb.co/PG0JqTLK/placeholder.jpg'}

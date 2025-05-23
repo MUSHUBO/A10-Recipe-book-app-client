@@ -2,7 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
 const Review = ({ reviews }) => {
-    console.log(reviews);
+    
     const { name, photo, date, rating, review } = reviews;
 
     return (
@@ -18,8 +18,8 @@ const Review = ({ reviews }) => {
 
             {/* Rating */}
             <div className="flex items-center mb-2 text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className={i < rating ? "" : "text-gray-300"} />
+                {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} className={index < rating ? "" : "text-gray-300"} />
                 ))}
             </div>
 

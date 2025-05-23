@@ -12,7 +12,7 @@ const AllRecipes = () => {
 
     return (
         <div className='my-10'>
-            <h1 className="text-3xl font-semibold text-center">All The Recipes</h1>
+            <h1 className="text-4xl font-bold text-center">All The <span className='text-orange-600'>Recipes</span></h1>
             <p className="text-gray-600 text-center mt-2 mb-10">
                 Discover a variety of delicious recipes from around the world, including breakfast, lunch, dinner, desserts, and more.
             </p>

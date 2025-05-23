@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Oats & Berry Smoothie",
+    "image": "https://i.ibb.co/NGBc1G4/best-recpies-01.jpg",
+    "disease": "Heart Disease",
+    "benefit": "Rich in fiber and antioxidants, lowers cholesterol.",
+    "award": "Heart Health Hero 2025"
+  },
+  {
+    "id": 2,
+    "name": "Grilled Salmon with Quinoa",
+    "image": "https://i.ibb.co/Y7dfLRrz/best-recipe-02.jpg",
+    "disease": "Diabetes",
+    "benefit": "Omega-3 fatty acids and low-GI grains support blood sugar.",
+    "award": "Diabetic Friendly Choice"
+  },
+  {
+    "id": 3,
+    "name": "Avocado & Spinach Salad",
+    "image": "https://i.ibb.co/GvHzQ2Ng/best-recipe-03.jpg",
+    "disease": "High Blood Pressure",
+    "benefit": "Potassium-rich and low-sodium, supports healthy BP.",
+    "award": "Low Sodium Excellence Award"
+  }
+]
