@@ -1,15 +1,30 @@
-import React, { useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { FaClock, FaHeart } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
 
 const RecipeDetails = () => {
     const recipeData = useLoaderData();
-    console.log(recipeData);
-    const { _id, image, title, categories, cuisineType, ingredients, instructions, preparationTime, likes } = recipeData;
+    // console.log(recipeData);
+    
+    const [likes, setLikes] = useState(recipeData.likes || 0);
+
+    const { _id, image, title, categories, cuisineType, ingredients, instructions, preparationTime } = recipeData;
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleLike = async() => {
+        try {
+            const response = await axios.patch(`http://localhost:3000/recipes/${_id}/like`);
+            if (response.data.modifiedCount > 0) {
+                setLikes(prev => prev + 1);
+            }
+        } catch (error) {
+            console.error("Error updating likes:", error);
+        }
+    }
 
     return (
         <div className='lg:w-2/4 mx-auto my-10'>
@@ -46,9 +61,9 @@ const RecipeDetails = () => {
 
                     {/* Like Button */}
                     <div className="card-actions justify-end mt-4">
-                        <span className="flex btn items-center gap-1 text-sky-600">
+                        <button onClick={handleLike} className="flex btn items-center gap-1 text-sky-600">
                             <FaHeart size={20} /> {likes}
-                        </span>
+                        </button>
                     </div>
                 </div>
             </div>

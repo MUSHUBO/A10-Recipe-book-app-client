@@ -14,7 +14,7 @@ const Reviews = () => {
     }, []);
 
     return (
-        <div className='my-32'>
+        <div className='mb-20 mt-32'>
             <h1 className="text-4xl font-bold mb-10 text-start">User
                 <span className='text-blue-800'> Reviews</span> </h1>
 

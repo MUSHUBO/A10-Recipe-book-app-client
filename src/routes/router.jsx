@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                loader: () => fetch('http://localhost:3000/recipes'),
+                loader: () => fetch('http://localhost:3000/top-recipes'),
                 Component: Home
             },
             {

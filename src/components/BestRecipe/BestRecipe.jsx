@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BestRecipe = ({ bestRecp }) => {
-    console.log(bestRecp);
+    // console.log(bestRecp);
     const { name, image, disease, benefit, award } = bestRecp;
 
     return (
