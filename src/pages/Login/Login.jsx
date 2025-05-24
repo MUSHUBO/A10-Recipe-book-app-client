@@ -1,10 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const { signInUser } = useContext(AuthContext);
+    // console.log(signInUser);
+    const navigate = useNavigate();
 
     const handleLogIn = e => {
         e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        // firebase LogIn Send.
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user);
+
+                const logInInfo = {
+                    email,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime
+                }
+
+                // update last login to the DB.
+                fetch('https://a10-recipe-book-app-server-lilac.vercel.app/users', {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(logInInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.matchedCount) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "LogIn Successfully",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                        setTimeout(() => {
+                            navigate('/');
+                        }, 1100);
+                    })
+
+            })
+            .catch(error => {
+                alert(error);
+            })
     }
 
     return (

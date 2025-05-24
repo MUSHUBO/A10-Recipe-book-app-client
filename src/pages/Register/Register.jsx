@@ -1,10 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-
+    const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
     const handleRegister = e => {
         e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const { email, password, ...restFormData } = Object.fromEntries(formData.entries());
+
+
+        // Create user with firebase.
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+
+                // ✅ ইউজারের প্রোফাইল আপডেট করুন
+
+                updateProfile(user, {
+                    displayName: restFormData.name,
+                    photoURL: restFormData.photo
+                })
+
+                const userProfile = {
+                    email,
+                    restFormData,
+                    creationTime: result.user?.metadata?.creationTime,
+                    lastSignInTime: result.user?.metadata?.lastSignInTime
+                }
+
+                // save profile info in the DB.
+                fetch('https://a10-recipe-book-app-server-lilac.vercel.app/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userProfile)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.insertedId) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Your Account Is Created!",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            navigate('/');
+                        }
+                    })
+            })
+            .catch(error => {
+                alert(error);
+            })
     }
 
     return (

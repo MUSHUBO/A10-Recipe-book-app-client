@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/Recipe_Book-nav-logo.png'
 import avatar from '../../assets/profile-avatar.png'
 import './navLinks.css'
+import { AuthContext } from '../../contexts/AuthContext';
 
 const NavBar = () => {
+    const { user } = useContext(AuthContext);
 
     const links = <>
         <NavLink to="/" className={({ isActive }) => isActive ? "link active" : "link"}>
@@ -49,7 +51,11 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                <img className='w-12 h-12 rounded-full object-cover cursor-pointer' src={avatar} alt="" />
+                <img
+                    className='w-12 h-12 rounded-full object-cover cursor-pointer'
+                    src={user?.photoURL || avatar}
+                    alt="user avatar"
+                />
                 <Link to="/auth/login" className="btn btn-outline btn-primary">
                     Login
                 </Link>
