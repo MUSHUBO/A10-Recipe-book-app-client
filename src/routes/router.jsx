@@ -9,6 +9,7 @@ import AllRecipes from "../pages/AllRecipes/AllRecipes";
 import AddRecipe from "../pages/AddRecipe/AddRecipe";
 import MyRecipes from "../pages/MyRecipes/MyRecipes";
 import RecipeDetails from "../pages/RecipeDetails/RecipeDetails";
+import PrivateRoute from "../pages/provider/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
             {
                 path: "/recipe/:id",
                 loader: ({params}) => fetch(`https://a10-recipe-book-app-server-lilac.vercel.app/recipes/${params.id}`),
-                Component: RecipeDetails
+                element: (
+                    <PrivateRoute>
+                        <RecipeDetails></RecipeDetails>
+                    </PrivateRoute>
+                )
             },
             {
                 path: "/allRecipes",
@@ -37,7 +42,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myRecipes",
-                Component: MyRecipes
+                element: (
+                    <PrivateRoute>
+                        <MyRecipes></MyRecipes>
+                    </PrivateRoute>
+                )
             },
         ]
     },
