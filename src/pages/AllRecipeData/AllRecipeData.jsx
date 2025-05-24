@@ -3,7 +3,7 @@ import { FaClock, FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const AllRecipeData = ({ AllRecipesData }) => {
-    console.log(AllRecipesData);
+    // console.log(AllRecipesData);
 
     const { _id, image, title, categories, cuisineType, likes } = AllRecipesData;
 

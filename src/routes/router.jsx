@@ -18,17 +18,17 @@ const router = createBrowserRouter([
             {
                 index: true,
                 path: "/",
-                loader: () => fetch('http://localhost:3000/top-recipes'),
+                loader: () => fetch('https://a10-recipe-book-app-server-lilac.vercel.app/top-recipes'),
                 Component: Home
             },
             {
                 path: "/recipe/:id",
-                loader: ({params}) => fetch(`http://localhost:3000/recipes/${params.id}`),
+                loader: ({params}) => fetch(`https://a10-recipe-book-app-server-lilac.vercel.app/recipes/${params.id}`),
                 Component: RecipeDetails
             },
             {
                 path: "/allRecipes",
-                loader: () => fetch('http://localhost:3000/recipes'),
+                loader: () => fetch('https://a10-recipe-book-app-server-lilac.vercel.app/recipes'),
                 Component: AllRecipes
             },
             {

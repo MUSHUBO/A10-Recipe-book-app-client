@@ -20,7 +20,7 @@ const AddRecipe = () => {
         console.log(recipeData);
 
         // send recipe data to the DB Server.
-        fetch('http://localhost:3000/recipes', {
+        fetch('https://a10-recipe-book-app-server-lilac.vercel.app/recipes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

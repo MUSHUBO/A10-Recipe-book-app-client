@@ -19,7 +19,6 @@ const TopRecipes = ({ recipesData }) => {
                     recipesData.map(recipe => (<TopRecipe
                         key={recipe._id}
                         recipe={recipe}
-
                     ></TopRecipe>))
                 }
             </div>

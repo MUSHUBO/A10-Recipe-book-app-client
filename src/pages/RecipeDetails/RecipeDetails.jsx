@@ -17,7 +17,7 @@ const RecipeDetails = () => {
 
     const handleLike = async() => {
         try {
-            const response = await axios.patch(`http://localhost:3000/recipes/${_id}/like`);
+            const response = await axios.patch(`https://a10-recipe-book-app-server-lilac.vercel.app/recipes/${_id}/like`);
             if (response.data.modifiedCount > 0) {
                 setLikes(prev => prev + 1);
             }
