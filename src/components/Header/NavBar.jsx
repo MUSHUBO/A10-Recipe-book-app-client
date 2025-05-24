@@ -4,9 +4,10 @@ import logo from '../../assets/Recipe_Book-nav-logo.png'
 import avatar from '../../assets/profile-avatar.png'
 import './navLinks.css'
 import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const links = <>
         <NavLink to="/" className={({ isActive }) => isActive ? "link active" : "link"}>
@@ -22,6 +23,22 @@ const NavBar = () => {
             My Recipes
         </NavLink>
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Logged Out Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+    };
 
     return (
         <div className="navbar w-11/12 mx-auto p-5">
@@ -51,14 +68,25 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                <img
-                    className='w-12 h-12 rounded-full object-cover cursor-pointer'
-                    src={user?.photoURL || avatar}
-                    alt="user avatar"
-                />
-                <Link to="/auth/login" className="btn btn-outline btn-primary">
-                    Login
-                </Link>
+                {
+                    user ? (
+                        <>
+                            <img className='w-12 h-12 rounded-full object-cover cursor-pointer'
+                                src={user.photoURL || avatar} alt="user avatar"
+                            />
+                            <button onClick={handleLogOut} className="btn btn-outline btn-error">
+                                Log Out
+                            </button>
+                        </> ) : (
+                        <>
+                            <img className='w-12 h-12 rounded-full object-cover cursor-pointer'
+                                src={avatar} alt="avatar"
+                            />
+                            <Link to="/auth/login" className="btn btn-outline btn-primary">
+                                Login
+                            </Link>
+                        </> )
+                }
             </div>
         </div>
     );
