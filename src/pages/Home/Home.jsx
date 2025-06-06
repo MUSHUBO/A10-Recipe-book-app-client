@@ -11,9 +11,11 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <TopRecipes recipesData={recipesData}></TopRecipes>
-            <BestRecipes></BestRecipes>
-            <Reviews></Reviews>
+            <div className='w-10/11 md:w-full mx-auto'>
+                <TopRecipes recipesData={recipesData}></TopRecipes>
+                <BestRecipes></BestRecipes>
+                <Reviews></Reviews>
+            </div>
         </div>
     );
 };

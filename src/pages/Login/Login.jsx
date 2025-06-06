@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const { signInUser } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         // firebase LogIn Send.
         signInUser(email, password)
@@ -82,6 +83,9 @@ const Login = () => {
                         </p>
                     </fieldset>
                 </form>
+                <div className='mx-auto'>
+                    <SocialLogin></SocialLogin>
+                </div>
             </div>
         </div>
     );

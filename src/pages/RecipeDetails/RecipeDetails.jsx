@@ -2,11 +2,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { FaClock, FaHeart } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router';
+import Loading from '../Loading/Loading';
 
 const RecipeDetails = () => {
     const recipeData = useLoaderData();
-    // console.log(recipeData);
-    
+
     const [likes, setLikes] = useState(recipeData.likes || 0);
 
     const { _id, image, title, categories, cuisineType, ingredients, instructions, preparationTime } = recipeData;
@@ -15,7 +15,11 @@ const RecipeDetails = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const handleLike = async() => {
+    if (!recipeData) {
+        return <Loading></Loading>
+    }
+
+    const handleLike = async () => {
         try {
             const response = await axios.patch(`https://a10-recipe-book-app-server-lilac.vercel.app/recipes/${_id}/like`);
             if (response.data.modifiedCount > 0) {

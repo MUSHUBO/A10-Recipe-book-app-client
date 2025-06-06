@@ -17,7 +17,7 @@ const AddRecipe = () => {
         });
         recipeData.categories = selectedCategories;
         recipeData.likes = 0;
-        console.log(recipeData);
+        // console.log(recipeData);
 
         // send recipe data to the DB Server.
         fetch('https://a10-recipe-book-app-server-lilac.vercel.app/recipes', {

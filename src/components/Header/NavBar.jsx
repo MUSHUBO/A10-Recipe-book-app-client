@@ -28,12 +28,23 @@ const NavBar = () => {
         logOut()
             .then(() => {
                 Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "Logged Out Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: "Are you sure you want to log-out?",
+                    text: "Log out of Recipe-Book?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Log Out!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Log Out!",
+                            text: "Log Out Successfully.",
+                            icon: "success"
+                        });
+                    }
                 });
+
             })
             .catch(error => {
                 alert(error.message);
@@ -71,13 +82,15 @@ const NavBar = () => {
                 {
                     user ? (
                         <>
-                            <img className='w-12 h-12 rounded-full object-cover cursor-pointer'
-                                src={user.photoURL || avatar} alt="user avatar"
-                            />
+                            <div className="tooltip tooltip-bottom" data-tip={user.displayName || "User"}>
+                                <img className='w-12 h-12 rounded-full object-cover cursor-pointer'
+                                    src={user.photoURL || avatar} alt=""
+                                />
+                            </div>
                             <button onClick={handleLogOut} className="btn btn-outline btn-error">
                                 Log Out
                             </button>
-                        </> ) : (
+                        </>) : (
                         <>
                             <img className='w-12 h-12 rounded-full object-cover cursor-pointer'
                                 src={avatar} alt="avatar"
@@ -85,7 +98,7 @@ const NavBar = () => {
                             <Link to="/auth/login" className="btn btn-outline btn-primary">
                                 Login
                             </Link>
-                        </> )
+                        </>)
                 }
             </div>
         </div>

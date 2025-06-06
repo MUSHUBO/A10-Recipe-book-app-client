@@ -3,11 +3,12 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext';
 import Swal from 'sweetalert2';
 import { updateProfile } from 'firebase/auth';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
-    
+
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -21,13 +22,13 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
 
-                // ✅ ইউজারের প্রোফাইল আপডেট করুন
-
+                // User profile upgrade.
                 updateProfile(user, {
                     displayName: restFormData.name,
                     photoURL: restFormData.photo
                 })
 
+                // User Data.
                 const userProfile = {
                     email,
                     restFormData,
@@ -35,7 +36,7 @@ const Register = () => {
                     lastSignInTime: result.user?.metadata?.lastSignInTime
                 }
 
-                // save profile info in the DB.
+                // Save profile info in the DB.
                 fetch('https://a10-recipe-book-app-server-lilac.vercel.app/users', {
                     method: 'POST',
                     headers: {
@@ -98,6 +99,9 @@ const Register = () => {
                         </p>
                     </fieldset>
                 </form>
+                <div className='mx-auto'>
+                    <SocialLogin></SocialLogin>
+                </div>
             </div>
         </div>
     );
