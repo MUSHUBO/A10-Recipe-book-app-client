@@ -54,3 +54,27 @@ A user-friendly web application that allows food enthusiasts to manage their own
     "swiper": "^11.2.7",
     "tailwindcss": "^4.1.7"
 }
+```
+---
+
+## 🚀 How to Run the Project Locally
+
+Follow these simple steps to set up and run the Recipe Book App on your local machine:
+
+1. **Clone the repository**  
+   Open your terminal and run:  
+   ```bash
+    - git clone https://github.com/MUSHUBO/A10-Recipe-book-app-client.git
+
+2. **Navigate to the project folder:**
+    - cd A10-Recipe-book-app-client
+
+3. **Install dependencies:**
+    - npm install
+
+4. **Start the development server:**
+    - npm run dev
+
+5. **Open your browser and go to:**
+    - http://localhost:5173
+```
