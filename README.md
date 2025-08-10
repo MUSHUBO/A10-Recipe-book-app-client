@@ -77,4 +77,3 @@ Follow these simple steps to set up and run the Recipe Book App on your local ma
 
 5. **Open your browser and go to:**
     - http://localhost:5173
-```
